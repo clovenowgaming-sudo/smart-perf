@@ -1,0 +1,71 @@
+{
+	"geode": "5.11.2",
+	"gd": {
+		"win": "2.2081",
+		"android": "2.2081",
+		"mac": "2.2081",
+		"ios": "2.2081"
+	},
+	"id": "clv.smart-perf",
+	"name": "Smart Perf",
+	"version": "1.0.0",
+	"developer": "clv",
+	"description": "Smart Culling + Particle Limiter: hentikan particle di luar layar dan batasi kepadatan particle (otomatis turun saat FPS drop) biar lebih lancar di HP.",
+	"tags": ["performance", "utility"],
+	"settings": {
+		"enable-culling": {
+			"type": "bool",
+			"name": "Smart Culling",
+			"description": "Hentikan update & render particle object yang berada di luar layar.",
+			"default": true
+		},
+		"cull-margin": {
+			"type": "int",
+			"name": "Culling Margin",
+			"description": "Jarak ekstra (px) di luar layar sebelum particle dianggap tidak terlihat. Kecil = lebih hemat, besar = lebih aman dari pop-in.",
+			"default": 150,
+			"min": 0,
+			"max": 600,
+			"control": { "input": true, "slider": true }
+		},
+		"enable-limiter": {
+			"type": "bool",
+			"name": "Particle Limiter",
+			"description": "Kurangi kepadatan (emission rate) particle di level.",
+			"default": true
+		},
+		"particle-density": {
+			"type": "int",
+			"name": "Particle Density (%)",
+			"description": "Persentase kepadatan particle maksimum. 100 = normal.",
+			"default": 60,
+			"min": 5,
+			"max": 100,
+			"control": { "input": true, "slider": true }
+		},
+		"dynamic-limiter": {
+			"type": "bool",
+			"name": "Dynamic Limiter",
+			"description": "Kepadatan particle otomatis turun kalau FPS di bawah target, dan naik lagi kalau FPS sudah aman.",
+			"default": true
+		},
+		"target-fps": {
+			"type": "int",
+			"name": "Target FPS",
+			"description": "FPS minimum yang ingin dijaga oleh Dynamic Limiter.",
+			"default": 55,
+			"min": 20,
+			"max": 240,
+			"control": { "input": true, "slider": true }
+		},
+		"min-density": {
+			"type": "int",
+			"name": "Minimum Density (%)",
+			"description": "Batas terendah kepadatan particle yang boleh dicapai Dynamic Limiter.",
+			"default": 15,
+			"min": 0,
+			"max": 100,
+			"control": { "input": true, "slider": true }
+		}
+	}
+}
